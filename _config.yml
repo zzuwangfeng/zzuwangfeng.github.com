@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: zzu.jackwong@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -90,11 +90,14 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: iluckly
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+# Post License 
+post_license: false

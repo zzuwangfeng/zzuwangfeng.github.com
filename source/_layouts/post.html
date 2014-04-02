@@ -3,7 +3,13 @@ layout: default
 single: true
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">{% include article.html %}</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">{% include article.html %}
+<footer>
+	<p class="meta">
+	{% include post/license.html %}
+	</p>
+</footer>>
+</article>
 {% unless page.sharing == false %}
 	{% include post/sharing.html %}
 {% endunless %}
