@@ -2,22 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[I'm JackWong]]></title>
-  <link href="http://zzuwangfeng.github.io/atom.xml" rel="self"/>
-  <link href="http://zzuwangfeng.github.io/"/>
-  <updated>2014-04-02T16:55:04+08:00</updated>
-  <id>http://zzuwangfeng.github.io/</id>
+  <link href="http://www.iluckly.com/atom.xml" rel="self"/>
+  <link href="http://www.iluckly.com/"/>
+  <updated>2014-04-02T18:36:34+08:00</updated>
+  <id>http://www.iluckly.com/</id>
   <author>
     <name><![CDATA[Jack Wong]]></name>
-    
+    <email><![CDATA[zzu.jackwong@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
     <title type="html"><![CDATA[A year's plans in the spring]]></title>
-    <link href="http://zzuwangfeng.github.io/blog/2014/04/02/a-years-plans-in-the-spring/"/>
+    <link href="http://www.iluckly.com/blog/2014/04/02/a-years-plans-in-the-spring/"/>
     <updated>2014-04-02T16:52:54+08:00</updated>
-    <id>http://zzuwangfeng.github.io/blog/2014/04/02/a-years-plans-in-the-spring</id>
+    <id>http://www.iluckly.com/blog/2014/04/02/a-years-plans-in-the-spring</id>
     <content type="html"><![CDATA[<h3>大家好，我是JackWong！欢迎大家来到我的小站！</h3>
 
 <p>一直想弄个bolg,由于时间问题,今天终于弄成了.由于git和<a href="http://en.wikipedia.org/wiki/Markdown">markdown</a>对我来说就是小白，所以搭建的时间断断续续持续了约一周。其实网上已经有很好的参考资料了，只要照着弄，很容易就能搭建好的。</p>
