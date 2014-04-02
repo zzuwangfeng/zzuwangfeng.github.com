@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://www.iluckly.com
+url: http://zzuwangfeng.github.io
 title: I'm JackWong
 subtitle: Stay Hungry,Stay Foolish!
 author: Jack Wong
@@ -63,7 +63,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: zzuwangfeng
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
@@ -78,15 +78,15 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
-googleplus_hidden: false
+googleplus_user: JackWong
+googleplus_hidden: true
 
 # Pinboard
 pinboard_user:
 pinboard_count: 3
 
 # Delicious
-delicious_user:
+delicious_user: 
 delicious_count: 3
 
 # Disqus Comments
