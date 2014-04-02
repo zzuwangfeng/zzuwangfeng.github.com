@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.iluckly.com/sitemap.xml 
+Sitemap: http://zzuwangfeng.github.io/sitemap.xml 
