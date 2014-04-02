@@ -9,8 +9,7 @@
 	<meta name="author" content="Jack Wong">
 
 	
-	<meta name="description" content=" Blog Archives
-">
+	<meta name="description" content="Apr 2nd, 2014 A Year&#8217;s Plans in the Spring 大家好，我是JackWong！欢迎大家来到我的小站！ 一直想弄个bolg,由于时间问题,今天终于弄成了.由于git和markdown对我来说就是小白，所以搭建的时间断断续续持续了约一周。 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +85,134 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-02T16:52:54+08:00" data-updated="true" itemprop="datePublished">Apr 2<span>nd</span>, 2014</time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/04/02/a-years-plans-in-the-spring/" itemprop="url">A Year&#8217;s Plans in the Spring</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>大家好，我是JackWong！欢迎大家来到我的小站！</h3>
+
+<p>一直想弄个bolg,由于时间问题,今天终于弄成了.由于git和<a href="http://en.wikipedia.org/wiki/Markdown">markdown</a>对我来说就是小白，所以搭建的时间断断续续持续了约一周。其实网上已经有很好的参考资料了，只要照着弄，很容易就能搭建好的。</p>
+
+<p>这篇文章是第一篇，我用的<a href="http://en.wikipedia.org/wiki/Markdown">markdown</a>编辑器是<a href="http://www.mouapp.com">mou</a>，感觉不错。
+下面是一些在mac机器上用octopress写博文需要用到的操作(持续更新)</p>
+
+<p><strong>目录</strong></p>
+
+<ul>
+<li><p>发表并部署博文</p></li>
+<li><p>添加多说评论功能</p></li>
+<li><p>起草文章 暂不公开</p></li>
+<li><p>域名解析</p></li>
+<li><p>添加百度统计和google analytics</p></li>
+</ul>
+
+
+<h3>发表并部署博文</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["New Post"]
+</span><span class='line'>$ rake generate
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -am "Some comment here." 
+</span><span class='line'>$ git push origin source
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>添加多说评论功能</h3>
+
+<p><strong>A 获取</strong> <code>short_name</code></p>
+
+<p>去多说网注册账号，获取站点的short_name</p>
+
+<p><strong>B 在</strong> <code>_config.yml</code> <strong>文件中添加如下内容</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#duoshuo comments
+</span><span class='line'>duoshuo_comments: true
+</span><span class='line'>duoshuo_short_name: yourname</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>C 在</strong> <code>source/_layouts/post.html</code> <strong>中添加多说评论模块</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>｛% if site.duoshuo_short_name and site.duoshuo_comments == true and page.comments == true %｝
+</span><span class='line'>  &lt;section&gt;
+</span><span class='line'>    &lt;h1&gt;Comments&lt;/h1&gt;
+</span><span class='line'>    &lt;div id="comments" aria-live="polite"&gt;｛% include post/duoshuo1.html %｝&lt;/div&gt;
+</span><span class='line'>  &lt;/section&gt;
+</span><span class='line'>｛% endif %｝</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>D 发布到站点</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -am "添加多说评论" 
+</span><span class='line'>$ git push origin source
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>起草文章暂不公开</h3>
+
+<p>在文章头部添加 <code>published: false</code> ，就能起到暂时不公开文章了(即使已经部署到了github中)，要公开文章只需要将false修改true即可。</p>
+
+<h3>域名解析</h3>
+
+<p>我们可以给GitHub上的page指定一个域名，具体做法如下2个步骤</p>
+
+<p><strong>1、给repo配置域名</strong></p>
+
+<p>在 <code>source</code> 根目录下新建一个名为<code>CNAME</code>的文件，并把你的域名填写进去，例如<code>iluckly.com</code>。这样做的目的是告诉GitHub服务器开始将repo中的page(例如<code>zzuwangfeng.github.io</code>)指向到某个域名中。</p>
+
+<p><strong>2、配置DNS(我的域名是在godaddy上购买的)</strong>
+添加一条A记录： <code>@ 204.232.175.78</code> 在CNAME中添加一条记录:<code>zzuwangfeng.github.com</code></p>
+
+<h3>添加百度统计和google analytics</h3>
+
+<p>从百度统计获取脚本，然后添加到文件s<code>ource/_includes/after_footer.html</code>文件中 从google analytics获取跟踪ID，然后将这个ID添加到<code>_config.yml</code>文件的<code>google_analytics_tracking_id</code>后面即可。</p>
+
+		
+		
+	</div>
+
+</article>
 
 </div>
 <nav id="pagenavi">
