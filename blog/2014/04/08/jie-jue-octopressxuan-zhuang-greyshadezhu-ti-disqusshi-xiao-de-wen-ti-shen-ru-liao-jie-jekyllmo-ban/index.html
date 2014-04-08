@@ -1,0 +1,203 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>解决Octopress选装Greyshade主题Disqus失效的问题--深入了解jekyll模板 - I'm JackWong</title>
+	<meta name="author" content="Jack Wong">
+
+	
+	<meta name="description" content="解决Octopress选装Greyshade主题Disqus失效的问题--深入了解jekyll模板 问题描述 在寻找漂亮的Octopress主题的时候，发现了一个不错的theme – Greyshade，按照Github页面上的提示进行安装： 1
+2
+3
+4
+$ git clone git@ &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="I'm JackWong" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("zzu.jackwong@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://about.me/shashankmehta">About</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href="mailto:zzu.jackwong@gmail.com" title="Email">Email</a>
+		
+		
+		
+		
+		
+			<a class="github" href="https://github.com/zzuwangfeng" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">解决Octopress选装Greyshade主题Disqus失效的问题--深入了解jekyll模板</h1>
+	<div class="entry-content" itemprop="articleBody"><h3>问题描述</h3>
+
+<hr />
+
+<p>在寻找漂亮的Octopress主题的时候，发现了一个不错的theme – <a href="https://github.com/shashankmehta/greyshade">Greyshade</a>，按照Github页面上的提示进行安装：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+</span><span class='line'>$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+</span><span class='line'>$ rake "install[greyshade]"
+</span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>rakw preview</code>之后，发现Disqus的comment功能不见了，下面开始解决问题。Jekyll模板结构下面的内容是我对Jekyll结构的理解，当我们新建一个模板，下面主要有下面几个文件和目录：</p>
+
+<p>_config.yml</p>
+
+<p>全局的配置文件，可以控制一些<code>plugin</code>的开关，比如<code>Disqus</code>，<code>github</code>，<code>google+</code>等</p>
+
+<pre><code>sass
+</code></pre>
+
+<p>里面是一堆的scss文件，负责页面UI区域规划，显示的颜色，文字排版等</p>
+
+<pre><code>source
+</code></pre>
+
+<p>出去sass干的，剩下的比如页面内容的组织，逻辑等就是由这个控制</p>
+
+<pre><code>source/_posts
+</code></pre>
+
+<p>其中这个文件夹存放的就是blog的<code>source</code>，blog的内容在这里面用编辑器编辑即可。</p>
+
+<h3>解决Disqus无法工作的问题</h3>
+
+<hr />
+
+<p>首先查看了问题页面的源码，负责comment模块的代码如下</p>
+
+<pre><code>&lt;section id="comment"&gt;
+&lt;h1 class="title"&gt;Comments&lt;/h1&gt;
+&lt;div id="disqus_thread" aria-live="polite"&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a    href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>这里没有执行任何的逻辑调用，查看了下这段代码位于<code>/includes/post/disqus_thread.html</code>中，而真正的需要的代码位于<code>/includes/disqus.html</code>中，这样问题就看<code>disqus</code>原来在哪里调用即可 查看完，发现原来的<code>classic theme</code>是把<code>disqus</code>调用放在<code>after_footer.html</code>中，这个在新主题内没有被任何文件调用，查看文件修改记录，在<code>_layouts/default.html</code>中<code>line 19</code>加入代码</p>
+</div>
+
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Jack Wong
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			
+
+<script type="text/javascript">
+      var disqus_shortname = 'iluckly';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/';
+        var disqus_url = 'http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/';
+        var disqus_script = 'embed.js';
+        document.write(disqus_url);
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+		</div>
+	</div>
+</body>
+</html>
