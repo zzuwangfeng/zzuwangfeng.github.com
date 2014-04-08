@@ -2,8 +2,14 @@
 layout: default
 single: true
 ---
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">{% include article.html %}
+<!--这里是增加的 -->
+<br>
+<br>
+  <p class="meta">
+     {% include post/copyright.html %}
+  </p>
+  <!--这里是增加的 -->
 </article>
 {% unless page.sharing == false %}
 	{% include post/sharing.html %}
