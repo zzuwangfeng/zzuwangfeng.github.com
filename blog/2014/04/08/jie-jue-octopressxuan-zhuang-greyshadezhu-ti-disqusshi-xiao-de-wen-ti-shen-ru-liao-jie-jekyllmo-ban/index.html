@@ -70,7 +70,7 @@ $ git clone git@ &hellip;">
 </hgroup>
 
 <nav id="main-nav"><ul class="main">
-    <li><a href="/">Blog</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="http://about.me/shashankmehta">About</a></li>
     <li><a href="/blog/archives">Archives</a></li>
 </ul>
@@ -168,6 +168,10 @@ $ git clone git@ &hellip;">
 </code></pre>
 
 <p>这里没有执行任何的逻辑调用，查看了下这段代码位于<code>/includes/post/disqus_thread.html</code>中，而真正的需要的代码位于<code>/includes/disqus.html</code>中，这样问题就看<code>disqus</code>原来在哪里调用即可 查看完，发现原来的<code>classic theme</code>是把<code>disqus</code>调用放在<code>after_footer.html</code>中，这个在新主题内没有被任何文件调用，查看文件修改记录，在<code>_layouts/default.html</code>中<code>line 19</code>加入代码</p>
+
+<p class='post-footer'>
+                        original link:<a href='http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/'>http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/</a><br/>&nbsp;written by <a href='http://www.iluckly.com'>Jack Wong</a>&nbsp;posted at <a href='http://www.iluckly.com'>http://www.iluckly.com</a></p>
+
 </div>
 
 
