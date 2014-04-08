@@ -70,7 +70,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user:
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
@@ -101,3 +101,6 @@ facebook_like: false
 
 # Post License 
 post_license: true
+
+#share
+share: false
