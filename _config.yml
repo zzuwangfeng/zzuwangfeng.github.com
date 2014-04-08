@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://www.iluckly.com
-title: I'm JackWong
+title: JackWong
 subtitle: Stay Hungry,Stay Foolish!
 author: Jack Wong
 simple_search: https://www.google.com/search
-description:
+description: Whole World is Watching.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -94,7 +94,7 @@ disqus_short_name: iluckly
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-49809291-1
 
 # Facebook Like
 facebook_like: false
