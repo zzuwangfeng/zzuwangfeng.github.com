@@ -4,7 +4,7 @@
   <title><![CDATA[JackWong]]></title>
   <link href="http://www.iluckly.com/atom.xml" rel="self"/>
   <link href="http://www.iluckly.com/"/>
-  <updated>2014-04-08T20:57:28+08:00</updated>
+  <updated>2014-04-08T22:11:33+08:00</updated>
   <id>http://www.iluckly.com/</id>
   <author>
     <name><![CDATA[Jack Wong]]></name>
@@ -69,10 +69,6 @@
 </code></pre>
 
 <p>这里没有执行任何的逻辑调用，查看了下这段代码位于<code>/includes/post/disqus_thread.html</code>中，而真正的需要的代码位于<code>/includes/disqus.html</code>中，这样问题就看<code>disqus</code>原来在哪里调用即可 查看完，发现原来的<code>classic theme</code>是把<code>disqus</code>调用放在<code>after_footer.html</code>中，这个在新主题内没有被任何文件调用，查看文件修改记录，在<code>_layouts/default.html</code>中<code>line 19</code>加入代码</p>
-
-<p class='post-footer'>
-                        original link:<a href='http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/'>http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/</a><br/>&nbsp;written by <a href='http://www.iluckly.com'>Jack Wong</a>&nbsp;posted at <a href='http://www.iluckly.com'>http://www.iluckly.com</a></p>
-
 ]]></content>
   </entry>
   
@@ -179,10 +175,6 @@
 <h3>添加百度统计和google analytics</h3>
 
 <p>从百度统计获取脚本，然后添加到文件s<code>ource/_includes/after_footer.html</code>文件中 从google analytics获取跟踪ID，然后将这个ID添加到<code>_config.yml</code>文件的<code>google_analytics_tracking_id</code>后面即可。</p>
-
-<p class='post-footer'>
-                        original link:<a href='http://www.iluckly.com/blog/2014/04/02/a-years-plans-in-the-spring/'>http://www.iluckly.com/blog/2014/04/02/a-years-plans-in-the-spring/</a><br/>&nbsp;written by <a href='http://www.iluckly.com'>Jack Wong</a>&nbsp;posted at <a href='http://www.iluckly.com'>http://www.iluckly.com</a></p>
-
 ]]></content>
   </entry>
   
