@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Disqus | I'm JackWong]]></title>
+  <link href="http://www.iluckly.com/blog/categories/disqus/atom.xml" rel="self"/>
+  <link href="http://www.iluckly.com/"/>
+  <updated>2014-04-08T16:04:54+08:00</updated>
+  <id>http://www.iluckly.com/</id>
+  <author>
+    <name><![CDATA[Jack Wong]]></name>
+    <email><![CDATA[zzu.jackwong@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[解决Octopress选装Greyshade主题Disqus失效的问题--深入了解jekyll模板]]></title>
+    <link href="http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban/"/>
+    <updated>2014-04-08T14:26:26+08:00</updated>
+    <id>http://www.iluckly.com/blog/2014/04/08/jie-jue-octopressxuan-zhuang-greyshadezhu-ti-disqusshi-xiao-de-wen-ti-shen-ru-liao-jie-jekyllmo-ban</id>
+    <content type="html"><![CDATA[<h3>问题描述</h3>
+
+<hr />
+
+<p>在寻找漂亮的Octopress主题的时候，发现了一个不错的theme – <a href="https://github.com/shashankmehta/greyshade">Greyshade</a>，按照Github页面上的提示进行安装：</p>
+
+<p><code>
+$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+$ rake "install[greyshade]"
+$ rake generate
+</code></p>
+
+<p><code>rakw preview</code>之后，发现Disqus的comment功能不见了，下面开始解决问题。Jekyll模板结构下面的内容是我对Jekyll结构的理解，当我们新建一个模板，下面主要有下面几个文件和目录：</p>
+
+<p>_config.yml</p>
+
+<p>全局的配置文件，可以控制一些<code>plugin</code>的开关，比如<code>Disqus</code>，<code>github</code>，<code>google+</code>等</p>
+
+<pre><code>sass
+</code></pre>
+
+<p>里面是一堆的scss文件，负责页面UI区域规划，显示的颜色，文字排版等</p>
+
+<pre><code>source
+</code></pre>
+
+<p>出去sass干的，剩下的比如页面内容的组织，逻辑等就是由这个控制</p>
+
+<pre><code>source/_posts
+</code></pre>
+
+<p>其中这个文件夹存放的就是blog的<code>source</code>，blog的内容在这里面用编辑器编辑即可。</p>
+
+<h3>解决Disqus无法工作的问题</h3>
+
+<hr />
+
+<p>首先查看了问题页面的源码，负责comment模块的代码如下</p>
+
+<pre><code>&lt;section id="comment"&gt;
+&lt;h1 class="title"&gt;Comments&lt;/h1&gt;
+&lt;div id="disqus_thread" aria-live="polite"&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a    href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>这里没有执行任何的逻辑调用，查看了下这段代码位于<code>/includes/post/disqus_thread.html</code>中，而真正的需要的代码位于<code>/includes/disqus.html</code>中，这样问题就看<code>disqus</code>原来在哪里调用即可 查看完，发现原来的<code>classic theme</code>是把<code>disqus</code>调用放在<code>after_footer.html</code>中，这个在新主题内没有被任何文件调用，查看文件修改记录，在<code>_layouts/default.html</code>中<code>line 19</code>加入代码</p>
+]]></content>
+  </entry>
+  
+</feed>
