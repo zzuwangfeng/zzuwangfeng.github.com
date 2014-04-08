@@ -8,6 +8,7 @@
         var disqus_identifier = '{{ site.url }}{{ page.url }}';
         var disqus_url = '{{ site.url }}{{ page.url }}';
         var disqus_script = 'embed.js';
+        document.write(disqus_url);
       {% else %}
         {% comment %} As `page.comments` is empty, we must be on the index page. {% endcomment %}
         var disqus_script = 'count.js';

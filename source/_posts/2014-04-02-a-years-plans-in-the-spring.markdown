@@ -3,7 +3,7 @@ layout: post
 title: "A year's plans in the spring"
 date: 2014-04-02 16:52:54 +0800
 comments: true
-categories: 
+categories: Octopress
 ---
 ### 大家好，我是JackWong！欢迎大家来到我的小站！
 
