@@ -33,3 +33,5 @@ $sidebar-link-color-hover: darken(#7ab662, 9);
 $nav-bg: #ccc !default;
 $nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25) !default;
+
+.post-footer{margin-top:10px;padding:5px;background:none repeat scroll 0pt 0pt #eee;font-size:90%;color:gray}
