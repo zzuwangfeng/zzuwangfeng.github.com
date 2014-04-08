@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[I'm JackWong]]></title>
+  <title><![CDATA[JackWong]]></title>
   <link href="http://www.iluckly.com/atom.xml" rel="self"/>
   <link href="http://www.iluckly.com/"/>
-  <updated>2014-04-08T17:19:18+08:00</updated>
+  <updated>2014-04-08T17:28:54+08:00</updated>
   <id>http://www.iluckly.com/</id>
   <author>
     <name><![CDATA[Jack Wong]]></name>
