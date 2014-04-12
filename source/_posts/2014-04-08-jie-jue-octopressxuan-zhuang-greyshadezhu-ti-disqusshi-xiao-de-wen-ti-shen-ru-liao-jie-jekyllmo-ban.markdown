@@ -19,7 +19,7 @@ $ rake generate
 
 ``rakw preview``之后，发现Disqus的comment功能不见了，下面开始解决问题。Jekyll模板结构下面的内容是我对Jekyll结构的理解，当我们新建一个模板，下面主要有下面几个文件和目录：
 
-_config.yml	
+	_config.yml	
 
 全局的配置文件，可以控制一些``plugin``的开关，比如``Disqus``，``github``，``google+``等
 
