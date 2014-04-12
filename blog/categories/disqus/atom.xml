@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Disqus | JackWong]]></title>
   <link href="http://www.iluckly.com/blog/categories/disqus/atom.xml" rel="self"/>
   <link href="http://www.iluckly.com/"/>
-  <updated>2014-04-08T23:17:56+08:00</updated>
+  <updated>2014-04-12T09:54:02+08:00</updated>
   <id>http://www.iluckly.com/</id>
   <author>
     <name><![CDATA[Jack Wong]]></name>
@@ -33,7 +33,8 @@ $ rake generate
 
 <p><code>rakw preview</code>之后，发现Disqus的comment功能不见了，下面开始解决问题。Jekyll模板结构下面的内容是我对Jekyll结构的理解，当我们新建一个模板，下面主要有下面几个文件和目录：</p>
 
-<p>_config.yml</p>
+<pre><code>_config.yml 
+</code></pre>
 
 <p>全局的配置文件，可以控制一些<code>plugin</code>的开关，比如<code>Disqus</code>，<code>github</code>，<code>google+</code>等</p>
 

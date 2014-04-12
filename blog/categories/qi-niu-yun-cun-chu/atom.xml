@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 七牛云存储 | JackWong]]></title>
+  <link href="http://www.iluckly.com/blog/categories/qi-niu-yun-cun-chu/atom.xml" rel="self"/>
+  <link href="http://www.iluckly.com/"/>
+  <updated>2014-04-12T09:54:02+08:00</updated>
+  <id>http://www.iluckly.com/</id>
+  <author>
+    <name><![CDATA[Jack Wong]]></name>
+    <email><![CDATA[zzu.jackwong@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[怎么把自己的文件部署到七牛云存储]]></title>
+    <link href="http://www.iluckly.com/blog/2014/04/12/zen-yao-ba-zi-ji-de-wen-jian-shang-chuan-dao-qi-niu-yun-cun-chu/"/>
+    <updated>2014-04-12T09:10:55+08:00</updated>
+    <id>http://www.iluckly.com/blog/2014/04/12/zen-yao-ba-zi-ji-de-wen-jian-shang-chuan-dao-qi-niu-yun-cun-chu</id>
+    <content type="html"><![CDATA[<p>在部署之前你首先要<a href="https://portal.qiniu.com/signup?code=3l94gjc9mqzwx">注册成为七牛用户</a>，然后<a href="https://portal.qiniu.com/setting/key">获取 access_key 和 secret_key</a>,新建一个七牛的仓库<code>（QiNiu_Repository）</code>,这个文件夹名字可以随便起，然后在里边见一个<code>public</code>文件夹和<code>qiniu.conf</code>文件。
+<code>qiniu.conf</code>文件内容如下：</p>
+
+<p>```
+{</p>
+
+<pre><code>"access_key": "Please apply your access key here",
+"secret_key": "Dont send your secret key to anyone",
+"bucket": "Bucket name on qiniu resource storage",
+"sync_dir": "public",
+"async_ops": "",
+"debug_level": 1
+</code></pre>
+
+<p>}
+<code>`
+</code>access_key<code>和</code>secret_key<code>分别填入从七牛云后台得到的 AccessKey 和 SecretKey。
+</code>bucket`` 是你要上传到七牛云存的空间名。</p>
+
+<p>下载同步工具 <code>qrsync</code>。</p>
+
+<ul>
+<li>Mac OS: <a href="http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.zip">http://devtools.qiniudn.com/qiniu-devtools-darwin_amd64-current.zip</a></li>
+<li>Linux 64bits: <a href="http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip">http://devtools.qiniudn.com/qiniu-devtools-linux_amd64-current.zip</a></li>
+<li>Linux 32bits: <a href="http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip">http://devtools.qiniudn.com/qiniu-devtools-linux_386-current.zip</a></li>
+<li>Windows 32bits: <a href="http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip">http://devtools.qiniudn.com/qiniu-devtools-windows_386-current.zip</a></li>
+<li>Windows 64bits: <a href="http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip">http://devtools.qiniudn.com/qiniu-devtools-windows_amd64-current.zip</a></li>
+</ul>
+
+
+<p>解压后把二进制文件拷贝到 path 变量包含的目录中，例如 Mac 下我把他们拷贝到了 <code>/usr/local/bin/</code> 下，你也可以拷贝到 <code>/usr/bin/</code> 目录，只要确保你可以从命令行里访问到 <code>qrsync</code>。
+最后把你准备上传的文件都拷贝到<code>public</code>下,只要执行了下面的操作，你的public文件夹就会和你的七牛对应的空间同步.</p>
+
+<p>然后执行：</p>
+
+<pre><code>qrsync qiniu.conf
+</code></pre>
+
+<p>Windows 下你需要执行：</p>
+
+<pre><code>qrsync.exe qiniu.conf
+</code></pre>
+
+<p>同步完成后，你的七牛对应的空间就看可以看到你的<code>public</code>文件夹对应的内容。</p>
+]]></content>
+  </entry>
+  
+</feed>
