@@ -62,6 +62,11 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 #   3rd Party Settings    #
 # ----------------------- #
 
+# weibo uesr
+weibo_user: zzuwangfeng # 微博数字 ID 或域名 ID
+dribbble_user: JackWong
+weibo_share: true # 是否开启微博分享按钮
+
 # Github repositories
 github_user: zzuwangfeng
 github_repo_count: 0
